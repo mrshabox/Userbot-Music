@@ -11,7 +11,7 @@ async def main():
     print(
         """
     ------------------------
-   | Rio Music Actived! |
+   | Tgram Music Actived! |
     ------------------------
 """
     )
