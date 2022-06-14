@@ -13,16 +13,16 @@ async def join(client, message):
     try:
         link = await client.export_chat_invite_link(chat_id)
     except BaseException:
-        await message.reply("**Error:**\nTambahkan saya sebagai admin grup Anda!")
+        await message.reply("**Error:**\nThêm tôi làm quản trị viên nhóm của bạn!")
         return
     try:
         await USER.join_chat(link)
-        await message.reply("**Userbot Joined**")
+        await message.reply("**TgramMusicBot đã tham gia**")
     except UserAlreadyParticipant:
-        await message.reply("**Userbot Sudah Join**")
+        await message.reply("**TgramMusicBot đã tham gia**")
 
 
-@Client.on_message(filters.command(["openvcs"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["voicechat"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def opengc(client, message):
     flags = " ".join(message.command[1:])
@@ -40,5 +40,5 @@ async def opengc(client, message):
         )
     except Exception:
         await message.reply(
-            "**Error:** Add userbot as admin of your group/channel with permission **Can manage voice chat**"
+            "**Error:** Thêm TgramMusicBot làm quản trị viên nhóm/kênh của bạn với quyền **Có thể quản lý cuộc trò chuyện thoại**"
         )
